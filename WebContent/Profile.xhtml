@@ -1,0 +1,102 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html" 
+      xmlns:p="http://primefaces.org/ui" > 
+      
+<h:head>
+<title>Profile</title>
+<h:outputStylesheet name="style.css" library="css"/></h:head> 
+<link href="#{facesContext.externalContext.requestContextPath}/resources/css/style.css" rel="stylesheet" type="text/css" />
+<body> 
+<div id="outer">
+  <div id="wrapper">
+    <div id="body-bot">
+      <div id="body-top">
+        <div id="logo">
+			<br></br>
+          <h1></h1>
+          <p></p>
+        </div>
+        <div id="nav"> 
+          <ul>
+            <li><a href="index.jsf">Home</a></li>
+         	<li><a href="#">Profile</a></li>
+            <li><a href="SearchVehicles.jsf">Search</a></li>
+            <li><a href="Login.jsf">Login</a></li>
+            <li><a href="Login.jsf">Log out</a></li>
+          </ul>
+          <div class="clear"> </div>
+        </div>
+        <div id="gbox">
+          <div id="gbox-top"> </div>
+          <div id="gbox-bg">
+            <div id="gbox-grd">
+<h:form>
+
+		<h1>Profile</h1>
+		
+		<label class="simpletext">First Name</label>
+		<h:outputLabel value = "#{usersDataTable.theLoggedOnUser.firstName}" rendered="#{not usersDataTable.theLoggedOnUser.canEdit}"></h:outputLabel>
+		<h:inputText value = "#{usersDataTable.theLoggedOnUser.firstName}" rendered="#{usersDataTable.theLoggedOnUser.canEdit}" />
+		<br></br>
+		<br></br>
+		<label class="simpletext">Surname</label>
+		<h:outputLabel value = "#{usersDataTable.theLoggedOnUser.secondName}" rendered="#{not usersDataTable.theLoggedOnUser.canEdit}"></h:outputLabel>
+		<h:inputText value = "#{usersDataTable.theLoggedOnUser.secondName}" rendered="#{usersDataTable.theLoggedOnUser.canEdit}" />
+		<br></br>
+		<br></br>
+		<label class="simpletext">Contact Number</label>
+		<h:outputLabel value = "#{usersDataTable.theLoggedOnUser.contactNumber}" rendered="#{not usersDataTable.theLoggedOnUser.canEdit}"></h:outputLabel>
+		<h:inputText value = "#{usersDataTable.theLoggedOnUser.contactNumber}" rendered="#{usersDataTable.theLoggedOnUser.canEdit}" />
+		<br></br>
+		<br></br>
+		<label class="simpletext">Email</label>
+		<h:outputLabel value = "#{usersDataTable.theLoggedOnUser.email}" rendered="#{not usersDataTable.theLoggedOnUser.canEdit}"></h:outputLabel>
+		<h:inputText value = "#{usersDataTable.theLoggedOnUser.email}" rendered="#{usersDataTable.theLoggedOnUser.canEdit}" />
+		<br></br>
+		<br></br>
+		<label class="simpletext">Address 1</label>
+		<h:outputLabel value = "#{usersDataTable.theLoggedOnUser.address1}" rendered="#{not usersDataTable.theLoggedOnUser.canEdit}"></h:outputLabel>
+		<h:inputText value = "#{usersDataTable.theLoggedOnUser.address1}" rendered="#{usersDataTable.theLoggedOnUser.canEdit}" />
+		<br></br>
+		<br></br>
+		<label class="simpletext">Address 2</label>
+		<h:outputLabel value = "#{usersDataTable.theLoggedOnUser.address2}" rendered="#{not usersDataTable.theLoggedOnUser.canEdit}"></h:outputLabel>
+		<h:inputText value = "#{usersDataTable.theLoggedOnUser.address2}" rendered="#{usersDataTable.theLoggedOnUser.canEdit}" />
+		<br></br>
+		<br></br>
+		<label class="simpletext">County</label>
+		<h:outputLabel value = "#{usersDataTable.theLoggedOnUser.county}" rendered="#{not usersDataTable.theLoggedOnUser.canEdit}"></h:outputLabel>
+		<h:inputText value = "#{usersDataTable.theLoggedOnUser.county}" rendered="#{usersDataTable.theLoggedOnUser.canEdit}" />
+		<br></br>
+		<br></br>
+		<h:commandButton value="Edit" action="#{usersDataTable.editUser(usersDataTable.theLoggedOnUser)}" rendered="#{not usersDataTable.theLoggedOnUser.canEdit}" />
+		<h:commandButton value="Save Changes" action="#{usersDataTable.saveActionCustomer}" rendered="#{usersDataTable.theLoggedOnUser.canEdit}" />
+		<br></br>
+		<br></br>
+		
+		
+		
+		
+		<h:commandButton value="View Bookings" action="#{usersDataTable.singleCustomerBookings}"></h:commandButton>
+		
+	
+		
+		
+
+	</h:form>
+
+     </div>
+          </div>
+          <div id="gbox-bot"> </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
+

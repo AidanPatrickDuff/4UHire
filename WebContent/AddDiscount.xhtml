@@ -1,0 +1,108 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<title>Add Discount</title>
+	<h:outputStylesheet name="style2.css" library="css" />
+	<link
+		href="#{facesContext.externalContext.requestContextPath}/resources/css/style2.css"
+		rel="stylesheet" type="text/css" />
+</h:head>
+<body>
+	<div id="outer">
+		<div id="wrapper">
+			<div id="body-bot">
+				<div id="body-top"> 
+					<div id="logo">
+						<br></br>
+						<h1></h1>
+						<p></p>
+					</div>
+					<h:form>
+					<div id="nav">
+						<ul>
+							<li><a href="index.jsf">Home</a></li>
+							<li><h:commandLink action = "#{usersDataTable.userLoggedOn}">Profile</h:commandLink></li>
+							<li><a href="SearchVehicles.jsf">Search</a></li>
+							<li><a href="Login.jsf">Login</a></li>
+							<li><a href="Login.jsf">Log out</a></li>
+						</ul>
+						<div class="clear"></div>
+					</div>
+					</h:form>
+					<div id="gbox">
+						<div id="gbox-top"></div>
+						<div id="gbox-bg">
+							<div id="gbox-grd">
+								<h:form>
+									<iodiv3>
+
+									<h1>Add Discount</h1>
+
+									<br></br>
+
+									<label class="simpletext">Select Event: </label> <br></br>
+									<h:selectOneMenu style="width:25%"
+										valueChangeListener="#{eventsDataTable.setEventType(event.eventType)}"
+										onchange="submit()" value="#{eventsDataTable.eventType}">
+										<f:selectItems value="#{eventsDataTable.eventsCollection}"
+											var="event" itemLabel="#{event.eventType}"
+											itemValue="#{event.eventType}" />
+									</h:selectOneMenu> <br></br>
+									<br></br>
+									<label class="simpletext">Select Discount : </label> <br></br>
+									<h:inputText value="#{eventsDataTable.discount}" /> <br></br>
+									
+
+									<h:commandButton value="Add Discount" class="greenbutton"
+										actionEventListener="eventsDataTable.addDiscount"
+										action="#{eventsDataTable.addDiscount}"></h:commandButton> <br></br>
+									
+									
+									<h:commandButton value="Back to Events" class="adddriverbutton"
+										action="UpdateEvents"></h:commandButton>
+									<br></br>
+									<br></br>
+									<label class="simpletext">Type : </label> <h:outputLabel
+										class="simpletext" value="#{eventsDataTable.eventType}"></h:outputLabel>
+									<br></br>
+									<br></br>
+									<label class="simpletext">Discount : </label> <h:outputLabel
+										class="simpletext" value="#{eventsDataTable.discount}"></h:outputLabel>
+									<br></br>
+									<br></br>
+									<label class="simpletext">Price : </label> <h:outputLabel
+										class="simpletext" value="#{eventsDataTable.price}"></h:outputLabel>
+									<br></br>
+									<br></br>
+
+									<p:dataTable var="events"
+										value="#{eventsDataTable.eventsCollection}" border="1">
+										<p:column style = "width:20%">
+											<f:facet name="header">Discount</f:facet>#{events.eventType}</p:column>
+										<p:column style = "width:12%">
+											<f:facet name="header">Discount</f:facet>#{events.discount} %</p:column>
+										<p:column style = "width:40%">
+											<f:facet name="header">Description</f:facet>#{events.description}</p:column>
+										<p:column style = "width:15%">
+											<f:facet name="header">Price</f:facet>#{events.price}</p:column>
+
+									</p:dataTable> </iodiv3>
+								</h:form>
+							</div>
+						</div>
+						<div id="gbox-bot"></div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
+

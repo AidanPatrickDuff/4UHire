@@ -1,0 +1,160 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<title>Vehicles</title>
+	<h:outputStylesheet name="style2.css" library="css" />
+
+<link
+	href="#{facesContext.externalContext.requestContextPath}/resources/css/style2.css"
+	rel="stylesheet" type="text/css" />
+	</h:head>
+<body>
+	<div id="outer">
+		<div id="wrapper">
+			<div id="body-bot">
+				<div id="body-top"> 
+					<div id="logo">
+						<br></br>
+						<h1></h1>
+						<p></p>
+					</div>
+					<h:form> 
+				        <div id="nav">
+				          <ul>
+				            <li><a href="index.jsf">Home</a></li>
+				            <li><h:commandLink action = "#{usersDataTable.userLoggedOn}">Profile</h:commandLink></li>
+				            <li><a href="SearchVehicles.jsf">Search</a></li>
+				            <li><a href="Login.jsf">Login</a></li>
+				            <li><a href="Login.jsf">Logout</a></li>
+				
+				          </ul>
+				          <div class="clear"> </div>
+				        </div>
+				        </h:form>
+					<div id="gbox">
+						<div id="gbox-top"></div>
+						<div id="gbox-bg">
+							<div id="gbox-grd">
+								<h:form>
+									<iodiv3>
+
+									<h1>Vehicles</h1>
+
+									<br></br>
+									<br></br>
+									<h2>All Vehicles</h2>
+									<br></br>
+									<br></br>
+
+									<p:dataTable var="vehicle"
+										value="#{vehicleDataTable.vehiclesCollection}"
+										style="width:100%" border="1">
+										<p:column style= "width:15%" >
+											<f:facet name="header">Registration</f:facet>
+											<h:inputText style="width: 5em" value="#{vehicle.vehicleReg}"
+												rendered="#{vehicle.canEdit}" />
+											<h:outputText style="width: 5em"
+												value="#{vehicle.vehicleReg}"
+												rendered="#{not vehicle.canEdit}" />
+										</p:column>
+
+										<p:column style= "width:8%">
+											<f:facet name="header">Make</f:facet>
+											<h:inputText style="width: 2em"
+												value="#{vehicle.vehicleMake}" rendered="#{vehicle.canEdit}" />
+											<h:outputText style="width: 5em"
+												value="#{vehicle.vehicleMake}"
+												rendered="#{not vehicle.canEdit}" />
+										</p:column>
+
+										<p:column style= "width:8%">
+											<f:facet name="header">Model</f:facet>
+											<h:inputText style="width: 2em"
+												value="#{vehicle.vehicleModel}"
+												rendered="#{vehicle.canEdit}" />
+											<h:outputText style="width: 5em"
+												value="#{vehicle.vehicleModel}"
+												rendered="#{not vehicle.canEdit}" />
+										</p:column>
+
+										<p:column style= "width:8%">
+											<f:facet name="header">Price</f:facet>
+											<h:inputText style="width: 2em"
+												value="#{vehicle.pricePerDay}" rendered="#{vehicle.canEdit}" />
+											<h:outputText style="width: 5em"
+												value="#{vehicle.pricePerDay}"
+												rendered="#{not vehicle.canEdit}" />
+										</p:column>
+
+										<p:column style= "width:10%">
+											<f:facet name="header">Engine Size</f:facet>
+											<h:inputText style="width: 3em" value="#{vehicle.engineSize}"
+												rendered="#{vehicle.canEdit}" />
+											<h:outputText style="width: 5em"
+												value="#{vehicle.engineSize}"
+												rendered="#{not vehicle.canEdit}" />
+										</p:column>
+
+										<p:column>
+											<f:facet name="header">Details</f:facet>
+											<h:inputText style="width: 5em" value="#{vehicle.details}"
+												rendered="#{vehicle.canEdit}" />
+											<h:outputText style="width: 5em" value="#{vehicle.details}"
+												rendered="#{not vehicle.canEdit}" />
+										</p:column>
+
+										<p:column style= "width:12%">
+											<f:facet name="header">Disabled Access</f:facet>
+<!-- 											<h:inputText style="width: 5em" -->
+<!-- 												value="#{vehicle.disabledAccess}" -->
+<!-- 												rendered="#{vehicle.canEdit}" /> -->
+									<h:selectOneMenu style="width: 5em" value="#{vehicle.disabledAccess}" rendered="#{vehicle.canEdit}" >
+										<f:selectItem itemValue="True" itemLabel="Yes" />
+										<f:selectItem itemValue="False" itemLabel="No" />
+									</h:selectOneMenu>
+											<h:outputText style="width: 5em"
+												value="#{vehicle.disabledAccess}"
+												rendered="#{not vehicle.canEdit}" />
+										</p:column>
+
+										<p:column style= "width:8%">
+											<f:facet name="header">Edit</f:facet>
+											<h:commandLink value="Edit"
+												action="#{vehicleDataTable.editVehicle(vehicle)}"
+												rendered="#{not vehicles.canEdit}" />
+										</p:column>
+
+										<p:column style= "width:8%">
+											<f:facet name="header">Delete</f:facet>
+											<h:commandLink value="Delete"
+												action="#{vehicleDataTable.deleteVehicle(vehicle)}"
+												rendered="#{not vehicles.canEdit}" />
+										</p:column>
+
+									</p:dataTable> <br></br>
+									<h:commandButton class="greenbutton" value="Save Changes"
+										action="#{vehicleDataTable.saveAction}"
+										rendered="#{vehicleDataTable.showSaveButton}" />
+										<br></br>
+											<h:commandButton class = "adddriverbutton" action="AddVehicle" value="Add a vehicle"></h:commandButton>
+											<br></br>
+										 </iodiv3>
+								</h:form>
+							</div>
+						</div>
+						<div id="gbox-bot"></div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
+

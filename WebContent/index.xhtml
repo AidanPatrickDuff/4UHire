@@ -1,0 +1,198 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+<h:head>
+	<title>Home</title>
+	<h:outputStylesheet name="style2.css" library="css" />
+	<link
+		href="#{facesContext.externalContext.requestContextPath}/resources/css/style2.css"
+		rel="stylesheet" type="text/css" />
+</h:head>
+<body>
+	<div id="outer">
+		<div id="wrapper">
+			<div id="body-bot">
+				<div id="body-top">
+					<div id="logo">
+						<br></br>
+						<h1></h1>
+						<p></p>
+					</div>
+					<h:form>
+						<div id="nav">
+							<ul>
+								<li><a href="index.jsf">Home</a></li>
+								<li><h:commandLink action="#{usersDataTable.userLoggedOn}">Profile</h:commandLink></li>
+								<li><a href="SearchVehicles.jsf">Search</a></li>
+								<li><a href="Login.jsf">Login</a></li>
+								<li><a href="Login.jsf">Logout</a></li>
+
+							</ul>
+							<div class="clear"></div>
+						</div>
+					</h:form>
+					<div id="gbox">
+						<div id="gbox-top"></div>
+						<div id="gbox-bg">
+							<div id="gbox-grd">
+							
+							<h:panelGroup  layout="block" rendered = "#{usersDataTable.customerLoggedOn}">
+								<div id="optiondivdiv">
+									<h:form>
+										<iodiv2>
+										
+										<div style="width: 50%; margin: 0 auto">
+								<h1 style="text-align: center">Welcome to 4UHire </h1> <br></br>
+										<h3 style="text-align: center">Please choose an option:</h3>
+										<br></br>
+										
+										<h:commandButton class="adddriverbutton"
+											action="ViewAllVehicles" value="View Vehicles"></h:commandButton>
+
+										<h:commandButton class="adddriverbutton"
+											action="viewAllEvents" value="View Events"></h:commandButton>
+											
+											</div>
+											
+										</iodiv2>
+									</h:form>
+								</div>
+								</h:panelGroup>
+								
+							<h:panelGroup layout="block" class = "welcomeDiv" rendered = "#{usersDataTable.customerLoggedOn}">
+							<iodiv2>
+								<div >
+								<h3 style="text-align:center;">About Us</h3>
+								<br></br>
+								
+								<p>Welcome to 4UHire, your leading car hire outlet in the Dublin
+										area. Here at 4UHire, we value the personal approach. Our company
+										was founded 1952 and since that time we have taken pride in
+										hiring our customers with an impressive range of vehicles at
+										highly competitive rates. As well as regular car categories;
+										Family, Luxury and Automatic, here at 4U Hire we specialize in
+										the provision of vehicles for entire events. For weddings 4UHire
+										 provide chauffer driven vehicles for the bridal party,
+										mini busses/busses for wedding guests and discounted car hire
+										for visiting guests. <br></br><br></br>You should find our booking site very
+										easy to use: feel free to browse our vehicles or events
+										and if you would like to make a booking, you can register an
+										account with us to choose your vehicles and/or events and
+										specify any other requirements you have. <br></br> <br></br>We look forward to
+										hearing from you!</p>
+								
+								</div>
+								</iodiv2>
+								</h:panelGroup>
+								
+								<br></br>
+								
+
+								<h:panelGroup layout="block" rendered = "#{usersDataTable.fdsLoggedOn}">
+								<div id="customerdiv">
+									<h:form>
+										<iodiv>
+										<h1 style="text-align: center">Customer</h1>
+										<br></br>
+										<br></br>
+										<h:commandButton class="adddriverbutton"
+											action="ViewAllVehicles" value="View Vehicles"></h:commandButton>
+
+										<br></br>
+										<h:commandButton class="adddriverbutton"
+											action="viewAllEvents" value="View Events"></h:commandButton>
+										</iodiv>
+									</h:form>
+								</div>
+								</h:panelGroup>
+								
+						
+						<h:panelGroup layout="block" rendered = "#{usersDataTable.fdsLoggedOn}">		
+						<div id="admindiv">
+							<h:form>
+							<iodiv>
+							<h1 style="text-align:center">Admin</h1>
+									<br></br>
+									<br></br>
+									<h:commandButton class = "adddriverbutton" action="UpdateVehicles" value="View All Vehicles"></h:commandButton>
+									<br></br>
+									<h:commandButton class = "adddriverbutton" action="UpdateEvents" value="View All Events"></h:commandButton>
+									<br></br>
+									<h:commandButton class = "adddriverbutton" action="UpdateDrivers" value="View All Drivers"></h:commandButton>
+									<br></br>
+									<h:commandButton class = "adddriverbutton" action="ViewAllEventBookings" value="Booked Events"></h:commandButton>
+									<br></br>
+									<h:commandButton class = "adddriverbutton" action="ViewAllVehicleBookings" value="Booked Vehicles"></h:commandButton>
+									<br></br>
+									<h:commandButton class = "adddriverbutton" action="UpdateManagers" value="View All Managers" rendered="#{usersDataTable.managerLoggedOn}"></h:commandButton>
+									<br></br>
+									<h:commandButton class = "adddriverbutton" action="UpdateFrontDeskStaff" value="View All Staff"  rendered = "#{usersDataTable.managerLoggedOn}"></h:commandButton>
+									<br></br>
+								</iodiv>	
+						</h:form>
+					</div>
+					</h:panelGroup>
+					
+					
+					<h:panelGroup layout="block" rendered = "#{usersDataTable.managerLoggedOn}">
+								<div id="customerdiv">
+									<h:form>
+										<iodiv>
+										<h1 style="text-align: center">Customer</h1>
+										<br></br>
+										<br></br>
+										<h:commandButton class="adddriverbutton"
+											action="ViewAllVehicles" value="View Vehicles"></h:commandButton>
+
+										<br></br>
+										<h:commandButton class="adddriverbutton"
+											action="viewAllEvents" value="View Events"></h:commandButton>
+										</iodiv>
+									</h:form>
+								</div>
+								</h:panelGroup>
+								
+						
+						<h:panelGroup layout="block" rendered = "#{usersDataTable.managerLoggedOn}">		
+						<div id="admindiv">
+							<h:form>
+							<iodiv>
+							<h1 style="text-align:center">Admin</h1>
+									<br></br>
+									<br></br>
+									<h:commandButton class = "adddriverbutton" action="UpdateVehicles" value="View All Vehicles"></h:commandButton>
+									<br></br>
+									<h:commandButton class = "adddriverbutton" action="UpdateEvents" value="View All Events"></h:commandButton>
+									<br></br>
+									<h:commandButton class = "adddriverbutton" action="UpdateDrivers" value="View All Drivers"></h:commandButton>
+									<br></br>
+									<h:commandButton class = "adddriverbutton" action="ViewAllEventBookings" value="Booked Events"></h:commandButton>
+									<br></br>
+									<h:commandButton class = "adddriverbutton" action="ViewAllVehicleBookings" value="Booked Vehicles"></h:commandButton>
+									<br></br>
+									<h:commandButton class = "adddriverbutton" action="UpdateManagers" value="View All Managers" rendered="#{usersDataTable.managerLoggedOn}"></h:commandButton>
+									<br></br>
+									<h:commandButton class = "adddriverbutton" action="UpdateFrontDeskStaff" value="View All Staff"  rendered = "#{usersDataTable.managerLoggedOn}"></h:commandButton>
+									<br></br>
+								</iodiv>	
+						</h:form>
+					</div>
+					</h:panelGroup>
+					
+
+							</div>
+						</div>
+						<div id="gbox-bot"></div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
+

@@ -1,0 +1,148 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<title>Drivers</title>
+	<h:outputStylesheet name="style2.css" library="css" />
+	<link
+		href="#{facesContext.externalContext.requestContextPath}/resources/css/style2.css"
+		rel="stylesheet" type="text/css" />
+</h:head>
+<body>
+	<div id="outer">
+		<div id="wrapper">
+			<div id="body-bot">
+				<div id="body-top">
+					<div id="logo"> 
+						<br></br>
+						<h1></h1>
+						<p></p>
+					</div>
+					 <h:form>
+					<div id="nav">
+						<ul>
+							<li><a href="index.jsf">Home</a></li>
+							<li><h:commandLink action = "#{usersDataTable.userLoggedOn}">Profile</h:commandLink></li>
+							<li><a href="SearchVehicles.jsf">Search</a></li>
+							<li><a href="Login.jsf">Login</a></li>
+							<li><a href="Login.jsf">Log out</a></li>
+						</ul>
+						<div class="clear"></div>
+					</div>
+					</h:form>
+					<div id="gbox">
+						<div id="gbox-top"></div>
+						<div id="gbox-bg">
+							<div id="gbox-grd">
+								<h:form>
+									<iodiv3>
+									<h1>Drivers</h1>
+
+									<br></br>
+									<br></br>
+
+									<p:dataTable var="driver"
+										value="#{driverDataTable.driversCollection}" border="1">
+										<p:column style="width:10%">
+											<f:facet name="header">Driver ID</f:facet>
+											<h:inputText style="width: 3em" value="#{driver.driverID}"
+												rendered="#{driver.canEdit}" />
+											<h:outputText style="width: 5em" value="#{driver.driverID}"
+												rendered="#{not driver.canEdit}" />
+
+										</p:column>
+
+										<p:column style="width:8%">
+											<f:facet name="header">First Name</f:facet>
+											<h:inputText style="width: 3em" value="#{driver.firstname}"
+												rendered="#{driver.canEdit}" />
+											<h:outputText style="width: 5em" value="#{driver.firstname}"
+												rendered="#{not driver.canEdit}" />
+										</p:column>
+
+										<p:column style="width:10%">
+											<f:facet name="header">Surname</f:facet>
+											<h:inputText style="width: 3em" value="#{driver.surname}"
+												rendered="#{driver.canEdit}" />
+											<h:outputText style="width: 5em" value="#{driver.surname}"
+												rendered="#{not driver.canEdit}" />
+										</p:column>
+
+										<p:column style="width:15%">
+											<f:facet name="header">Contact Number</f:facet>
+											<h:inputText style="width: 3em"
+												value="#{driver.contactNumber}" rendered="#{driver.canEdit}" />
+											<h:outputText style="width: 5em"
+												value="#{driver.contactNumber}"
+												rendered="#{not driver.canEdit}" />
+										</p:column>
+
+										<p:column style="width:15%">
+											<f:facet name="header">License Number</f:facet>
+											<h:inputText style="width: 3em"
+												value="#{driver.licenseNumber}" rendered="#{driver.canEdit}" />
+											<h:outputText style="width: 5em"
+												value="#{driver.licenseNumber}"
+												rendered="#{not driver.canEdit}" />
+										</p:column>
+
+										<p:column style="width:12%">
+											<f:facet name="header">Insurance details</f:facet>
+											<h:inputText style="width: 5em"
+												value="#{driver.insuranceDetails}"
+												rendered="#{driver.canEdit}" />
+											<h:outputText style="width: 5em"
+												value="#{driver.insuranceDetails}"
+												rendered="#{not driver.canEdit}" />
+										</p:column>
+
+										<p:column style="width:10%">
+											<f:facet name="header">Penalty Points</f:facet>
+											<h:inputText style="width: 3em"
+												value="#{driver.penaltyPoints}" rendered="#{driver.canEdit}" />
+											<h:outputText style="width: 5em"
+												value="#{driver.penaltyPoints}"
+												rendered="#{not driver.canEdit}" />
+										</p:column>
+
+										<p:column style="width:8%">
+											<f:facet name="header">Edit</f:facet>
+											<h:commandLink value="Edit"
+												action="#{driverDataTable.editDriver(driver)}"
+												rendered="#{not driver.canEdit}" />
+										</p:column>
+
+										<p:column style="width:8%">
+											<f:facet name="header">Delete</f:facet>
+											<h:commandLink value="Delete"
+												action="#{driverDataTable.deleteDriver(driver)}"
+												rendered="#{not driver.canEdit}" />
+										</p:column>
+
+									</p:dataTable> <br></br>
+
+									<h:commandButton class="greenbutton" value="Save Changes"
+										action="#{driverDataTable.saveAction}"
+										rendered="#{driverDataTable.showSaveButton}" /> 
+									<h:commandButton class="adddriverbutton" value="Add Driver"
+										action="AddDriver" />
+										
+										</iodiv3>
+								</h:form>
+							</div>
+						</div>
+						<div id="gbox-bot"></div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
+

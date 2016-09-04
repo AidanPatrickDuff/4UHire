@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html" > 
+      
+<h:head>
+<title>Login</title>
+<link rel="shortcut icon" type="image/x-icon" href="#{request.contextPath}/resources/css/images/favicon.png"/>
+<h:outputStylesheet name="style2.css" library="css"/>
+<link href="#{facesContext.externalContext.requestContextPath}/resources/css/style2.css" rel="stylesheet" type="text/css" />
+</h:head> 
+<body> 
+<div id="outer">
+  <div id="wrapper">
+    <div id="body-bot">
+      <div id="body-top">
+        <div id="logo">
+			<br></br>
+          <h1></h1>
+          <p></p>
+        </div>
+        <div id="nav">
+          <ul> 
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+          </ul>
+          <div class="clear"> </div>
+        </div>
+        <div id="gbox">
+          <div id="gbox-top"> </div>
+          <div id="gbox-bg">
+            <div id="gbox-grd">
+<h:form>
+	<iodiv>
+
+		<h1>Login</h1> 
+		
+		<br></br>
+		<br></br>
+		<h:outputLabel value="Email " class = "simpletext"/>
+		<h:inputText value="#{usersDataTable.email}" />
+		<br></br>
+		<br></br>
+		<h:outputLabel value="Password" class = "simpletext" />
+		<h:inputSecret value="#{usersDataTable.password}"  ></h:inputSecret>
+		<br></br>
+		<br></br>
+		
+		<h:commandButton class = "adddriverbutton" value="Login" action="#{usersDataTable.LogIn}">
+				<f:param name="email" value="#{usersDataTable.email}" />
+		</h:commandButton>
+		&nbsp;
+		<h:commandButton class = "adddriverbutton" action="RegisterCustomer" value="Register"></h:commandButton>
+	</iodiv>
+	</h:form>
+     </div>
+          </div>
+          <div id="gbox-bot"> </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
+

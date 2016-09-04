@@ -1,0 +1,117 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+<h:head>
+	<title>Register Customer</title>
+	<h:outputStylesheet name="style2.css" library="css" />
+	<link
+		href="#{facesContext.externalContext.requestContextPath}/resources/css/style2.css"
+		rel="stylesheet" type="text/css" />
+</h:head>
+<body>
+	<div id="outer">
+		<div id="wrapper">
+			<div id="body-bot">
+				<div id="body-top">
+					<div id="logo"> 
+						<br></br>
+						<h1></h1>
+						<p></p>
+					</div>
+					<div id="nav">
+						<ul>
+							<li><a href="index.jsf">Home</a></li>
+							<li><a href="#">Profile</a></li>
+							<li><a href="SearchVehicles.jsf">Search</a></li>
+							<li><a href="Login.jsf">Login</a></li>
+							<li><a href="Login.jsf">Log out</a></li>
+						</ul>
+						<div class="clear"></div>
+					</div>
+					<div id="gbox">
+						<div id="gbox-top"></div>
+						<div id="gbox-bg">
+							<div id="gbox-grd">
+								<h:form>
+									<iodiv>
+
+									<h1>Register Customer</h1>
+
+									<br></br>
+									<br></br>
+
+									<label class="simpletext">Enter First Name : </label> <h:inputText
+										value="#{usersDataTable.firstName}" /> <br></br>
+
+
+									<label class="simpletext">Enter Second Name : </label> <h:inputText
+										value="#{usersDataTable.secondName}" /> <br></br>
+
+
+									<label class="simpletext">Enter Email : </label> <h:inputText
+										value="#{usersDataTable.email}" /> <br></br>
+
+
+									<label class="simpletext">Enter Contact Number : </label> <h:inputText
+										value="#{usersDataTable.contactNumber}" /> <br></br>
+
+
+									<label class="simpletext">Enter Address 1 : </label> <h:inputText
+										value="#{usersDataTable.address1}" /> <br></br>
+
+
+									<label class="simpletext">Enter Address 2 : </label> <h:inputText
+										value="#{usersDataTable.address2}" /> <br></br>
+
+
+									<label class="simpletext">Enter County : </label> <h:inputText
+										value="#{usersDataTable.county}" /> <br></br>
+
+
+									<label class="simpletext">Enter password: </label> <h:inputSecret
+										value="#{usersDataTable.password}">
+										<f:validateRegex
+											pattern="((?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%]).{6,20})" />
+									</h:inputSecret> <br></br>
+									<h:commandButton class="greenbutton" value="Register"
+										action="#{usersDataTable.addCustomer}"></h:commandButton> <h:commandButton
+										class="adddriverbutton" value="I have a login" action="Login"></h:commandButton>
+
+									<br></br>
+									<br></br>
+
+									<br></br>
+
+
+<!-- 									<h2>Customers</h2> -->
+
+<!-- 									<h:dataTable var="users" -->
+<!-- 										value="#{usersDataTable.customersCollection}" border="1"> -->
+<!-- 										<h:column> -->
+<!-- 											<f:facet name="header">First Name</f:facet>#{users.firstName} -->
+<!-- 	</h:column> -->
+<!-- 										<h:column> -->
+<!-- 											<f:facet name="header">Second Name</f:facet>#{users.secondName} -->
+<!-- 	</h:column> -->
+<!-- 										<h:column> -->
+<!-- 											<f:facet name="header">Email</f:facet>#{users.email} -->
+<!-- 	</h:column> -->
+<!-- 									</h:dataTable> -->
+									 </iodiv>
+								</h:form>
+							</div>
+						</div>
+						<div id="gbox-bot"></div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
+

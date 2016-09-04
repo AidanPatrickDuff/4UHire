@@ -1,0 +1,59 @@
+@CHARSET "ISO-8859-1";
+
+body {
+	font-family: Arial;
+	font-size: 12px;
+	background-color: lightblue;
+	color: darkblue;
+}
+
+.nameTable{
+	border-collapse: collapse;
+	border: 1px solid blue;
+}
+
+.nameTableHeader{
+	text-align: center;
+	background: #B5B5B5;
+	padding: 2px
+}
+
+.nameTableOddRow{
+	text-align: center;
+	background: #FFF
+}
+
+.nameTableEvenRow{
+	
+	text-align: center;
+	background: #D3D3
+}
+
+body {
+	font-family: Arial;
+	font-size: 12px;
+	background-color: lightblue;
+	color: darkblue;
+	padding: 2em;
+}
+
+label{
+	width: 20em;
+	float: left;
+}
+input{
+	margin-bottom: .5em;
+	width: 10em;
+}
+
+table {
+	color: #333;
+	font-family: Helvetica, Arial, sans-serif;
+	width: 600px;
+	border-collapse:collapse; 
+	border-spacing: 5;
+	padding: 5px;
+	background-color: white;
+	border-spacing: 1px;
+    border-collapse: separate;
+}

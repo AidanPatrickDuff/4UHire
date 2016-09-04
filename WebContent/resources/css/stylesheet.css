@@ -1,0 +1,30 @@
+@CHARSET "ISO-8859-1";
+
+body {
+	font-family: Arial;
+	font-size: 12px;
+	background-color: lightblue;
+	color: darkblue;
+}
+
+.nameTable{
+	border-collapse: collapse;
+	border: 1px solid blue;
+}
+
+.nameTableHeader{
+	text-align: center;
+	background: #B5B5B5;
+	padding: 2px
+}
+
+.nameTableOddRow{
+	text-align: center;
+	background: #FFF
+}
+
+.nameTableEvenRow{
+	
+	text-align: center;
+	background: #D3D3
+}

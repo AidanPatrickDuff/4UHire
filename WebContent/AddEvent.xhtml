@@ -1,0 +1,88 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+<h:head>
+	<title>Add Event</title>
+	<h:outputStylesheet name="style2.css" library="css" />
+
+<link
+	href="#{facesContext.externalContext.requestContextPath}/resources/css/style2.css"
+	rel="stylesheet" type="text/css" />
+	</h:head>
+<body>
+	<div id="outer">
+		<div id="wrapper">
+			<div id="body-bot">
+				<div id="body-top">
+					<div id="logo">
+						<br></br> 
+						<h1></h1>
+						<p></p>
+					</div>
+					 <h:form> 
+        <div id="nav">
+          <ul>
+            <li><a href="index.jsf">Home</a></li>
+            <li><h:commandLink action = "#{usersDataTable.userLoggedOn}">Profile</h:commandLink></li>
+            <li><a href="SearchVehicles.jsf">Search</a></li>
+            <li><a href="Login.jsf">Login</a></li>
+            <li><a href="Login.jsf">Logout</a></li>
+
+          </ul>
+          <div class="clear"> </div>
+        </div>
+        </h:form>
+					<div id="gbox">
+						<div id="gbox-top"></div>
+						<div id="gbox-bg">
+							<div id="gbox-grd">
+								<h:form>
+									<iodiv>
+
+									<h1>Add new Event</h1>
+
+									<br></br>
+									<br></br>
+
+									<label class="simpletext">Enter Event Type : </label> <h:inputText
+										value="#{eventsDataTable.eventType}" required="true"
+										requiredMessage="Please enter an event type" /> <br></br>
+									<br></br>
+
+									<label class="simpletext">Enter discount : </label> <h:inputText
+										value="#{eventsDataTable.discount}" required="true"
+										requiredMessage="Please enter a discount" /> <br></br>
+									<br></br>
+
+									<label class="simpletext">Enter description : </label> <h:inputText
+										value="#{eventsDataTable.description}" /> <br></br>
+									<br></br>
+
+
+									<label class="simpletext">Enter price: </label> <h:inputText
+										value="#{eventsDataTable.price}" required="true"
+										requiredMessage="Please enter a price" /> <br></br>
+									<br></br>
+
+									<h:commandButton class="greenbutton" value="Save Event"
+										action="#{eventsDataTable.addEvent}"></h:commandButton> <br></br>
+									<br></br>
+									</iodiv>
+								</h:form>
+							</div>
+						</div>
+						<div id="gbox-bot"></div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--<div id="copyright"> &copy; Copyright information goes here. All rights reserved | designed by <a href="http://www.freewebsitetemplates.com">free website templates</a></div>-->
+</body>
+</html>
+
